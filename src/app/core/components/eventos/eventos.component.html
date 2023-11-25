@@ -1,0 +1,44 @@
+<h1>Eventos</h1>
+<hr/>
+<div class="col-4 d-flex gap-3">
+    <input #input placeholder="Pesquisar" type="text" class="form-control form-control-lg" [(ngModel)]="search">
+</div>
+<table class="table table-bordered shadow text-center mt-3">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>#</th>
+            <th >
+                <button class="m-0 p-0 px-2 btn btn-outline-light btn-sm" (click)="showImages = !showImages">
+                    {{ showImages ? 'Ocultar' : 'Mostrar' }}
+                </button>
+            </th>
+            <th>Tema</th>
+            <th>Local</th>
+            <th>Data</th>
+            <th>Qnt Pessoas</th>
+            <th>Lote</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let evento of eventosFiltrados">
+            <td>{{ evento.id }}</td>
+            <td><img *ngIf="showImages" src="{{ evento.imagemURL }}" alt="" class="img-fluid"></td>
+            <td>{{  evento.local }}</td>
+            <td>{{  evento.tema }}</td>
+            <td>{{  evento.dataEvento | date: 'dd/MM/YYYY' }}</td>
+            <td>{{  evento.qntPessoas }}</td>
+            <td>
+                <div class="d-flex gap-2 justify-content-center flex-wrap">
+                    <button class="btn btn-primary btn-sm">Editar</button>
+                    <button class="btn btn-danger btn-sm">Excluir</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="!eventos.length">
+        <tr>
+            <td colspan="8" class="text-center fs-4">Não há nenhum evento</td>
+        </tr>
+    </tfoot>
+</table>
