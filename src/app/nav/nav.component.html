@@ -1,20 +1,43 @@
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">CRUD-Eventos</a>
-        <button  type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav" [collapse]="isCollapsed" [isAnimated]="true">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="eventos" routerLinkActive="active">Eventos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="palestrantes" routerLinkActive="active">Palestrantes</a>
-            </li>
-        </ul>
-        </div>
+<div class="container-fluid bg-white shadow-sm" *ngIf="showMenu()">
+    <div class="container-fluid container-sm">
+        <nav class="navbar navbar-expand-lg bg-white">
+            <div class="container-fluid">
+                <button  type="button" class="navbar-toggler ms-auto" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav" [collapse]="isCollapsed" [isAnimated]="true">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="eventos" routerLinkActive="active">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="palestrantes" routerLinkActive="active">Palestrantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="contatos" routerLinkActive="active">Contatos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="dashboard" routerLinkActive="active">Dashboard</a>
+                    </li>
+                    <li class="nav-item ms-lg-auto ms-0">
+                        <div class="btn-group" dropdown>
+                            <button id="button-disabled-item" dropdownToggle type="button" class="btn dropdown-toggle"
+                                    aria-controls="dropdown-disabled-item">
+                             Gabriel <span class="caret"></span>
+                            </button>
+                            <ul id="dropdown-disabled-item" *dropdownMenu class="dropdown-menu"
+                                role="menu" aria-labelledby="button-disabled-item">
+                              <li role="menuitem"><a routerLink="/user/perfil" class="dropdown-item" href="#">Perfil</a>
+                              </li>
+                              <li role="menuitem"><a routerLink="/user/login" class="dropdown-item" href="#">Sair</a></li>
+                            </ul>
+                          </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
 
+</div>

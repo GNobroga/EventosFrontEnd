@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap align-items-center justify-content-between  gap-3 p-3 my-3 text-white bg-dark rounded shadow-sm">
+   <div class="d-flex gap-3 align-content-center">
+        <i class="{{ classIcon }}"></i>
+        <div class="lh-1 d-flex flex-column gap-2">
+            <h1 class="h2 mb-0 text-white lh-1">{{ title }}</h1>
+            <small>Desde 2023</small>
+        </div>
+   </div>
+
+    <button (click)="list()" class="btn btn-outline-light" *ngIf="hasButtonLabel">
+        {{ btnLabel }}
+    </button>
+  </div>
